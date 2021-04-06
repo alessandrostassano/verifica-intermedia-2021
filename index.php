@@ -18,9 +18,11 @@ if (isset($_GET['searchID']) && trim($_GET['searchID'] !== '')) {
 }
 
 
-if (isset($_GET["status"])) {
-    $searchStatus = $_GET["status"];
-    $taskList = array_filter($taskList, searchStatus($searchStatus));
+if (isset($_GET['searchNome']) && trim($_GET['searchNome'] !== '')) {
+    $searchText = trim(filter_var($_GET['searchNome'], FILTER_SANITIZE_STRING));
+    $taskUser = array_filter($taskUser, searchNome($searchText));
+} else {
+    $searchNome = "";
 }
 
 ?>
