@@ -28,11 +28,11 @@ Visualizzare l'elenco degli **Users**.
 
 ## Implementare le funzionalità di ricercha 
 
-- [ ] Implementare le ricerche per presenti nell'intestazione della tabella.
+- [x] Implementare le ricerche per presenti nell'intestazione della tabella.
 
-    - [ ] findByFirstName
-    - [ ] findByLastName
-    - [ ] findByAge (età)
+    - [x] findByFirstName
+    - [x] findByLastName
+    - [x] findByAge (età)
 
 ---  
 

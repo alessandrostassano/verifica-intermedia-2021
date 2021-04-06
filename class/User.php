@@ -24,7 +24,14 @@ class User {
         $this->birthday = $birthday;
     }*/
     
-    public function setExpirationDate($expirationDate)
+    public function getAge($expirationDate)
+    {
+        $this->expirationDate = $expirationDate;
+        
+        return $this;
+    }
+
+    public function isAdult($expirationDate)
     {
         $this->expirationDate = $expirationDate;
         

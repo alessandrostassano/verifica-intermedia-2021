@@ -87,7 +87,9 @@ if (isset($_GET['searchText']) && trim($_GET[ 'searchText'] !== '')) {
                         $user = new User();
                         $user -> id = $task["id"];
                         $user -> firstName = $task["firstName"];
-                        $user -> lastName = $task["lastName"];
+                        $nameLowercase = strtolower($task ["lastName"]);
+                        $uppercasename = ucfirst($nameLowercase);
+                        $user -> lastName = $uppercasename;
                         $user -> email = $task["email"];
                         $user -> birthday = $task["birthday"];
                     
