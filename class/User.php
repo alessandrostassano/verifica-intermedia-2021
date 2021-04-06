@@ -24,11 +24,9 @@ class User {
         $this->birthday = $birthday;
     }*/
     
-    public function getAge($expirationDate)
+    public function getAge($birthday)
     {
-        $this->expirationDate = $expirationDate;
-        
-        return $this;
+        return floor((time() - strtotime($birthday)) / 31556926);
     }
 
     public function isAdult($expirationDate)
