@@ -1,19 +1,26 @@
 <?php
 
 require './class/User.php';
-require './lib/UsersSearchFunctions.php';
+require './lib/searchFunctions.php';
 require './lib/JSONReader.php';
+
 
 
 
 $taskUser = JSONReader("./dataset/users-management-system.json");
 
 
-if (isset($_GET['searchText']) && trim($_GET[ 'searchText'] !== '')) {
-    $searchText = trim(filter_var($_GET['searchText'], FILTER_SANITIZE_STRING));
-    $taskUser = array_filter($taskUser, searchText($searchText));
+if (isset($_GET['searchID']) && trim($_GET['searchID'] !== '')) {
+    $searchText = trim(filter_var($_GET['searchID'], FILTER_SANITIZE_STRING));
+    $taskUser = array_filter($taskUser, searchID($searchText));
 } else {
-    $searchText = "";
+    $searchID = "";
+}
+
+
+if (isset($_GET["status"])) {
+    $searchStatus = $_GET["status"];
+    $taskList = array_filter($taskList, searchStatus($searchStatus));
 }
 
 ?>
@@ -37,7 +44,9 @@ if (isset($_GET['searchText']) && trim($_GET[ 'searchText'] !== '')) {
     </style>
 </head>
 
+<form action="index.php" method="GET">
 <body>
+    
     <header class="container-fluid bg-secondary text-light p-2">
         <div class="container">
             <h1 class="display-3 mb-0">
@@ -49,33 +58,33 @@ if (isset($_GET['searchText']) && trim($_GET[ 'searchText'] !== '')) {
     <div class="container">
         <table class="table">
             <tr>
-                <th>id</th>
-                <th>nome</th>
-                <th>cognome</th>
-                <th>email</th>
-                <th cellspan="2">età</th>
+                <th >id</th>
+                <th >nome</th>
+                <th >cognome</th>
+                <th >email</th>
+                <th cellspan="2" >età</th>
             </tr>
             <tr>
             
         
                 <th>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" name="searchID">
                 </th>
 
                 <th>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" name="searchNome">
                 </th>
 
                 <th>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" name="searchCognome">
                 </th>
 
                 <th>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" name="searcEmail">
                 </th>
 
                 <th>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" name="searchEta">
                 </th>
                 <th>
                     <button class="btn btn-primary">cerca</button>
@@ -107,5 +116,6 @@ if (isset($_GET['searchText']) && trim($_GET[ 'searchText'] !== '')) {
         </table>
     </div>
 </body>
+</form>
 
 </html>

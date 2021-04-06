@@ -32,7 +32,7 @@ class User {
     public function isAdult($birthday)
     {
         if ($birthday >= 18) {
-            return "MAGGIORENNE";
+            return "MAGGIORENNE"; //
         }
         else {
             return "MINORENNE";
