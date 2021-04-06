@@ -1,3 +1,13 @@
+<?php
+
+
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -36,6 +46,16 @@
                 <th cellspan="2">età</th>
             </tr>
             <tr>
+            <?php 
+                      foreach ($taskList as $key => $task) { 
+            
+                        $status = $task["status"];
+                        $taskName = $task["taskName"];
+                        $expirationDate = $task["expirationDate"];
+                      
+
+                ?>
+        
                 <th>
                     <input class="form-control" type="text">
                 </th>
