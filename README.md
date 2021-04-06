@@ -7,24 +7,24 @@ Dare la priorità alla consegna su formaretedad formato zip
 
 ## Importazione dati, creazione della classe User, trasformazione di un elenco di istanze della classe Users
 
-- [ ] importare i dati presenti nel file [./dataset/users-management-system.json]("./dataset/users-management-system.json")
-- [ ] trasformare ogni riga presente nel dataset in un instanza di una classe **User** con le seguenti proprietà:
+- [x] importare i dati presenti nel file [./dataset/users-management-system.json]("./dataset/users-management-system.json")
+- [x] trasformare ogni riga presente nel dataset in un instanza di una classe **User** con le seguenti proprietà:
     - userId
     - firstName
     - lastName
     - birthday
     - email 
 
-- [ ] Implementare il metodo **getAge** che permette di ottenere l'età dell'utente
-- [ ] Implementare il metodo **isAdult** che restituisce **true** se l'utente e maggiorenne **false** e se l'utente è minorenne.
+- [] Implementare il metodo **getAge** che permette di ottenere l'età dell'utente
+- [] Implementare il metodo **isAdult** che restituisce **true** se l'utente e maggiorenne **false** e se l'utente è minorenne.
 
 ## Creazione del layout
 
 Partendo dal layout [index.html](./index.html)
 Visualizzare l'elenco degli **Users**.
 
-- [ ] Sanificare **lastName** per la visualizzazione (ROSSI --> Rossi)
-- [ ] Visualizzare l'ètà dell'utente
+- [x] Sanificare **lastName** per la visualizzazione (ROSSI --> Rossi)
+- [x] Visualizzare l'ètà dell'utente
 
 ## Implementare le funzionalità di ricercha 
 

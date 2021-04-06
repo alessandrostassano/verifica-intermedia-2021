@@ -1,10 +1,20 @@
 <?php
 
+require './class/User.php';
+require './lib/UsersSearchFunctions.php';
+require './lib/JSONReader.php';
 
 
 
+$taskUser = JSONReader("./dataset/users-management-system.json");
 
 
+if (isset($_GET['searchText']) && trim($_GET[ 'searchText'] !== '')) {
+    $searchText = trim(filter_var($_GET['searchText'], FILTER_SANITIZE_STRING));
+    $taskUser = array_filter($taskUser, searchText($searchText));
+} else {
+    $searchText = "";
+}
 
 ?>
 
@@ -46,15 +56,7 @@
                 <th cellspan="2">età</th>
             </tr>
             <tr>
-            <?php 
-                      foreach ($taskList as $key => $task) { 
             
-                        $status = $task["status"];
-                        $taskName = $task["taskName"];
-                        $expirationDate = $task["expirationDate"];
-                      
-
-                ?>
         
                 <th>
                     <input class="form-control" type="text">
@@ -79,20 +81,25 @@
                     <button class="btn btn-primary">cerca</button>
                 </th>
             </tr>
+            <?php 
+                foreach ($taskUser as $key => $task) 
+                    { 
+                        $user = new User();
+                        $user -> id = $task["id"];
+                        $user -> firstName = $task["firstName"];
+                        $user -> lastName = $task["lastName"];
+                        $user -> email = $task["email"];
+                        $user -> birthday = $task["birthday"];
+                    
+            ?>
             <tr>
-                <td>10</td>
-                <td>Mario</td>
-                <td>Rossi</td>
-                <td>mariorossi@email.com</td>
-                <td>15 </td>
+                <td><?= $user ->id ?></td>
+                <td><?= $user ->firstName ?></td>
+                <td><?= $user ->lastName ?></td>
+                <td><?= $user ->email?></td>
+                <td><?= $user ->birthday ?></td>
             </tr>
-            <tr>
-                <td>13</td>
-                <td>Mario</td>
-                <td>Mario</td>
-                <td>mariomario@email.com</td>
-                <td>20 </td>
-            </tr>
+            <?php } ?>        
         </table>
     </div>
 </body>
