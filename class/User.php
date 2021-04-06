@@ -29,11 +29,14 @@ class User {
         return floor((time() - strtotime($birthday)) / 31556926);
     }
 
-    public function isAdult($expirationDate)
+    public function isAdult($birthday)
     {
-        $this->expirationDate = $expirationDate;
-        
-        return $this;
+        if ($birthday >= 18) {
+            return "MAGGIORENNE";
+        }
+        else {
+            return "MINORENNE";
+        }
     }
 }
     
