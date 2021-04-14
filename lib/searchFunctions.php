@@ -21,12 +21,10 @@ function searchNome($searchNome){
         $searchTextTrim = trim($TextNoSpace);
        
         If ($searchTextTrim !== ""){
-        $risultato = stripos($mocktaskList["id"],$searchTextTrim) !== false; 
+        return stripos($mocktaskList["firstName"],$searchTextTrim) !== false; 
         } else {
-        $risultato = true;
+        return true;
        }
-
-    return $risultato;
 };
 }
 
